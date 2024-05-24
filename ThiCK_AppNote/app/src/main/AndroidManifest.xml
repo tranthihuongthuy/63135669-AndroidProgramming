@@ -13,6 +13,12 @@
         android:theme="@style/Theme.ThiCK_AppNote"
         tools:targetApi="31">
         <activity
+            android:name=".NotesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ManHinhNotes"
+            android:exported="false" />
+        <activity
             android:name=".ForgotPassword"
             android:exported="false" />
         <activity
@@ -20,6 +26,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:theme="@style/Base.Theme.ThiCK_AppNote.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
