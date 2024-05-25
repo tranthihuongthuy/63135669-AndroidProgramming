@@ -1,12 +1,12 @@
 package till.huongthuy.thick_appnote.DataBase;
 
-import android.content.Context;
+        import android.content.Context;
 
-import androidx.room.Database;
-import androidx.room.Room;
-import androidx.room.RoomDatabase;
+        import androidx.room.Database;
+        import androidx.room.Room;
+        import androidx.room.RoomDatabase;
 
-import till.huongthuy.thick_appnote.Models.Notes;
+        import till.huongthuy.thick_appnote.Models.Notes;
 
 @Database(entities = Notes.class, version = 1, exportSchema = false)
 public abstract class RoomDB extends RoomDatabase {
@@ -15,7 +15,7 @@ public abstract class RoomDB extends RoomDatabase {
     public synchronized static RoomDB getInstance(Context context){
         if(database==null){
             database= Room.databaseBuilder(context.getApplicationContext(),
-                    RoomDB.class,DATABASE_NAME)
+                            RoomDB.class,DATABASE_NAME)
                     .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .build();

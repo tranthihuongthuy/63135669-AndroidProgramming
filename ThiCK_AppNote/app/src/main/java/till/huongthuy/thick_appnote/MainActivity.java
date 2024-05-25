@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (email.equals(registeredEmail) && password.equals(registeredPassword)) {
             Toast.makeText(MainActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-            // Chuyển đến màn hình chính hoặc màn hình sau khi đăng nhập thành công
+            Intent intent = new Intent(MainActivity.this, ManHinhNotes.class);
+            startActivity(intent);
         } else {
             Toast.makeText(MainActivity.this, "Email hoặc mật khẩu không hợp lệ", Toast.LENGTH_SHORT).show();
         }
