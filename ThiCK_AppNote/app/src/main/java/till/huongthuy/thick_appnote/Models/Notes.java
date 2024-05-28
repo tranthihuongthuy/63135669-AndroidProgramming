@@ -9,13 +9,13 @@ import java.io.Serializable;
 public class Notes implements Serializable {
     @PrimaryKey(autoGenerate = true)
     int ID = 0;
-    @ColumnInfo(name = "tittle")
+    @ColumnInfo(name = "Tiêu đề")
     String tittle = "";
-    @ColumnInfo(name = "notes")
+    @ColumnInfo(name = "Ghi chú")
     String notes = "";
-    @ColumnInfo(name = "date")
+    @ColumnInfo(name = "Ngày")
     String date = "";
-    @ColumnInfo(name = "pinned")
+    @ColumnInfo(name = "Ghim")
     boolean pinned = false;
 
     public int getID() {

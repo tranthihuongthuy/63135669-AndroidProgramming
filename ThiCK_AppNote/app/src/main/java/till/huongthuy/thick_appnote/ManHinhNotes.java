@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-import till.huongthuy.thick_appnote.R;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
@@ -39,7 +39,6 @@ public class ManHinhNotes extends AppCompatActivity implements PopupMenu.OnMenuI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_man_hinh_notes);
-
         recyclerView = findViewById(R.id.recycler_view);
         fab_btn = findViewById(R.id.fab_add_btn);
         searchView = findViewById(R.id.search_view);
@@ -83,7 +82,7 @@ public class ManHinhNotes extends AppCompatActivity implements PopupMenu.OnMenuI
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 101) {
+        if (requestCode == 101) { // Adding a new note
             if (resultCode == Activity.RESULT_OK) {
                 Notes new_notes = (Notes) data.getSerializableExtra("note");
                 database.dao().insert(new_notes);
@@ -91,10 +90,10 @@ public class ManHinhNotes extends AppCompatActivity implements PopupMenu.OnMenuI
                 notes.addAll(database.dao().getAll());
                 notesListAdapter.notifyDataSetChanged();
             }
-        } else if (requestCode == 102) {
+        } else if (requestCode == 102) { // Editing an existing note
             if (resultCode == Activity.RESULT_OK) {
-                Notes new_notes = (Notes) data.getSerializableExtra("note");
-                database.dao().update(new_notes.getID(), new_notes.getTittle(), new_notes.getNotes());
+                Notes updated_notes = (Notes) data.getSerializableExtra("note");
+                database.dao().update(updated_notes);
                 notes.clear();
                 notes.addAll(database.dao().getAll());
                 notesListAdapter.notifyDataSetChanged();

@@ -25,20 +25,17 @@ public class NotesListAdapter extends RecyclerView.Adapter<NotesViewHolder>{
     Context context;
     List<Notes> list;
     NotesClick notesClick;
-
     public NotesListAdapter(Context context, List<Notes> list, NotesClick notesClick) {
         this.context = context;
         this.list = list;
         this.notesClick = notesClick;
     }
-
     @NonNull
     @Override
     public NotesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new NotesViewHolder(LayoutInflater.from(context).inflate(R.layout.notes_list,parent,false));
 
     }
-
     @Override
     public void onBindViewHolder(@NonNull NotesViewHolder holder, int position) {
         holder.textView_tittle.setText(list.get(position).getTittle());
